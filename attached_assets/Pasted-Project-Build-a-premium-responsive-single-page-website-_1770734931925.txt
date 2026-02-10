@@ -1,0 +1,63 @@
+Project: Build a premium, responsive, single-page website for Chantal Hammer using HTML, Tailwind CSS, and Framer Motion. Aesthetic: "Quiet Luxury" / "Minimalist Boutique."
+
+    Colors: Background #F9F7F2 (Warm Cream), Text #333333 (Charcoal), Accents #8A8D7C (Muted Olive).
+
+    Typography: Playfair Display (Headings), Montserrat (Body).
+
+Page Structure & Content:
+
+1. Hero Section
+
+    Layout: 2-Column Split. Left: Large image placeholder (Elegant portrait). Right: Content.
+
+    Heading: "Coming Home to Yourself."
+
+    Sub-heading: "Rediscovering your strengths and purpose beyond roles, routines, and responsibilities."
+
+    CTA Button: "Begin Your Journey" (Minimalist border-bottom style).
+
+2. Narrative Section (The Mirror)
+
+    Layout: Wide margins, centered text, high whitespace.
+
+    Big Quote: "Where am I in all of this?"
+
+    Body Text: > "Many women over 40 find themselves in the space between 'everything looks fine on the outside' and 'something essential is missing on the inside.' Between responsibility, expectations, and the quiet longing to finally choose themselves again. After years of caring for others, a deeper question surfaces. This is where your journey begins: A journey of reconnecting with the woman you are—beyond roles, routines, and responsibilities."
+
+3. Methodology Section (The Pivot)
+
+    Layout: Two-column split. Left: Image placeholder (Lifestyle/Nature). Right: Content.
+
+    Heading: "Your Next Chapter, Defined."
+
+    Body Text: > "I specialize in empowering mature women to rediscover their untapped potential. Whether you are ready to redefine your business, create relationships based on mutual respect, or step fully into your leadership and inner strength—I walk beside you. I help you gain clarity about how you truly want your future to look—professionally, personally, and on a soul level."
+
+4. Authority Section (The Bio)
+
+    Background: #EEECE6 (Slightly darker cream).
+
+    Layout: Professional layout featuring the "Office/iPad" photo.
+
+    Heading: "Business Acumen Meets Personal Transformation."
+
+    Body Text:
+
+        "I am Chantal Hammer—an entrepreneur with over 25 years in the luxury sector. With a career spanning leading roles at Polo Ralph Lauren and LVMH to serving as Board Chair at Hammer AG, I combine business precision with deep human understanding. I coach women who are ready for change and willing to look in the mirror with radical honesty."
+
+5. Contact Section
+
+    Heading: "This is your time."
+
+    Sub-text: "To choose yourself. To create your next chapter with clarity and confidence."
+
+    Layout: A "Private Inquiry" box (border: 1px solid #8A8D7C).
+
+    Content: Placeholders for [Email Address] and [LinkedIn Profile Link].
+
+Technical Requirements:
+
+    Padding-y: 24 to 40 (10rem+) for a breathable, luxury feel.
+
+    Framer Motion: Use initial={{ opacity: 0, y: 20 }} whileInView for all section headers.
+
+    Smooth scrolling and mobile-first responsiveness.

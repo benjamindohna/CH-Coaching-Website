@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { images } from "@/lib/images";
-import { ArrowRight, Mail, Linkedin } from "lucide-react";
+import { ArrowRight, Mail, Linkedin, GraduationCap, Globe, Briefcase, Heart } from "lucide-react";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
   <motion.div
@@ -14,13 +14,50 @@ const FadeIn = ({ children, delay = 0, className = "" }: { children: React.React
   </motion.div>
 );
 
+const Logo = () => (
+  <div className="flex items-center gap-3">
+    <span className="text-2xl font-serif">CH</span>
+    <span className="text-[10px] tracking-[0.3em] uppercase font-light border-l border-primary/30 pl-3">Executive Coaching</span>
+  </div>
+);
+
+const TrustBar = () => {
+  const items = [
+    { icon: GraduationCap, text: "INSEAD Executive Coach" },
+    { icon: Globe, text: "Fluent in 5 Languages" },
+    { icon: Briefcase, text: "25+ Years Luxury Leadership" },
+    { icon: Heart, text: "Mother of 4 & Resilience Expert" },
+  ];
+
+  return (
+    <section className="py-16 bg-secondary/50 border-y border-primary/10">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4">
+          {items.map((item, index) => (
+            <FadeIn key={index} delay={index * 0.1}>
+              <div className="flex flex-col items-center text-center space-y-4">
+                <item.icon className="w-5 h-5 text-primary/60 stroke-[1.5px]" />
+                <span className="text-[10px] tracking-[0.2em] uppercase font-medium text-foreground/70">
+                  {item.text}
+                </span>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default function Home() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden selection:bg-primary/20">
       
       {/* Navigation (Simple) */}
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center mix-blend-difference text-primary-foreground pointer-events-none">
-        <div className="text-sm tracking-[0.2em] uppercase font-bold pointer-events-auto">Chantal Hammer</div>
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center mix-blend-difference text-primary-foreground pointer-events-none">
+        <div className="pointer-events-auto">
+          <Logo />
+        </div>
         <div className="hidden md:flex gap-8 text-xs tracking-widest uppercase pointer-events-auto">
           <a href="#narrative" className="hover:opacity-70 transition-opacity">The Mirror</a>
           <a href="#methodology" className="hover:opacity-70 transition-opacity">The Pivot</a>
@@ -133,9 +170,9 @@ export default function Home() {
             <div className="lg:col-span-1 lg:col-start-7 lg:col-end-13">
               <FadeIn delay={0.2}>
                 <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary mb-6 block">The Authority</span>
-                <h2 className="text-4xl lg:text-5xl mb-10 leading-tight">
-                  Business Acumen Meets <br/>
-                  <span className="italic">Personal Transformation.</span>
+                <h2 className="text-4xl lg:text-5xl mb-10 leading-tight text-foreground">
+                  CH Executive Coaching <br/>
+                  <span className="italic text-primary/70">Meets Personal Transformation.</span>
                 </h2>
                 <div className="space-y-6 text-lg font-light leading-relaxed text-foreground/80">
                   <p>
@@ -161,27 +198,20 @@ export default function Home() {
                     <span className="text-xs uppercase tracking-widest text-muted-foreground">Former Leadership</span>
                   </div>
                 </div>
-                <div className="mt-12 grid grid-cols-2 gap-8 border-t border-primary/20 pt-8">
-                  <div>
-                    <span className="block text-3xl font-serif mb-2">25+</span>
-                    <span className="text-xs uppercase tracking-widest text-muted-foreground">Years Experience</span>
-                  </div>
-                  <div>
-                    <span className="block text-3xl font-serif mb-2">LVMH</span>
-                    <span className="text-xs uppercase tracking-widest text-muted-foreground">Former Leadership</span>
-                  </div>
-                </div>
               </FadeIn>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Trust Bar Section */}
+      <TrustBar />
+
       {/* 5. Contact Section */}
       <section id="contact" className="py-32 lg:py-40 px-6 bg-background">
         <div className="max-w-2xl mx-auto text-center">
           <FadeIn>
-            <h2 className="text-4xl lg:text-6xl mb-6">This is your time.</h2>
+            <h2 className="text-4xl lg:text-6xl mb-6 text-foreground">This is your time.</h2>
             <p className="text-xl text-muted-foreground font-light mb-16">
               To choose yourself. To create your next chapter with clarity and confidence.
             </p>
@@ -193,12 +223,12 @@ export default function Home() {
               
               <div className="space-y-8">
                 <a href="mailto:contact@chantalhammer.com" className="flex items-center justify-center gap-3 text-lg hover:text-primary transition-colors">
-                  <Mail className="w-5 h-5" />
+                  <Mail className="w-5 h-5 text-primary/60" />
                   contact@chantalhammer.com
                 </a>
                 
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 text-lg hover:text-primary transition-colors">
-                  <Linkedin className="w-5 h-5" />
+                  <Linkedin className="w-5 h-5 text-primary/60" />
                   Connect on LinkedIn
                 </a>
               </div>
@@ -207,8 +237,13 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="py-12 text-center text-xs uppercase tracking-widest text-muted-foreground border-t border-primary/10">
-        &copy; {new Date().getFullYear()} Chantal Hammer. All Rights Reserved.
+      <footer className="py-16 px-6 bg-secondary/30 border-t border-primary/10">
+        <div className="container mx-auto flex flex-col items-center">
+          <Logo />
+          <p className="mt-8 text-[10px] uppercase tracking-widest text-muted-foreground/60">
+            &copy; {new Date().getFullYear()} CH Executive Coaching. All Rights Reserved.
+          </p>
+        </div>
       </footer>
     </div>
   );

@@ -1,6 +1,7 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { images } from "@/lib/images";
-import { ArrowRight, Mail, Linkedin, GraduationCap, Globe, Briefcase, Heart } from "lucide-react";
+import { ArrowRight, Mail, Linkedin, GraduationCap, Globe, Briefcase, Heart, Menu, X } from "lucide-react";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
   <motion.div
@@ -14,12 +15,119 @@ const FadeIn = ({ children, delay = 0, className = "" }: { children: React.React
   </motion.div>
 );
 
-const Logo = () => (
+const Logo = ({ scrolled }: { scrolled?: boolean }) => (
   <div className="flex items-center gap-3">
-    <span className="text-2xl font-serif">CH</span>
-    <span className="text-[10px] tracking-[0.3em] uppercase font-light border-l border-primary/30 pl-3">Executive Coaching</span>
+    <span className={`text-2xl font-serif transition-colors duration-300 ${scrolled ? 'text-white' : 'text-white/90'}`}>CH</span>
+    <span className={`text-[10px] tracking-[0.3em] uppercase font-light border-l pl-3 transition-colors duration-300 ${scrolled ? 'text-white border-white/30' : 'text-white/80 border-white/20'}`}>Executive Coaching</span>
   </div>
 );
+
+const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "The Mirror", href: "#narrative" },
+    { name: "The Pivot", href: "#methodology" },
+    { name: "The Authority", href: "#authority" },
+    { name: "Contact", href: "#contact" },
+  ];
+
+  return (
+    <>
+      <nav 
+        className={`fixed top-0 left-0 w-full z-50 px-6 py-6 lg:px-12 transition-all duration-300 ease-in-out ${
+          scrolled ? "bg-primary shadow-lg py-4" : "bg-transparent py-8"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className="relative z-50">
+            <Logo scrolled={scrolled} />
+          </div>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex gap-10 text-[10px] tracking-[0.2em] uppercase font-medium">
+            {navLinks.map((link) => (
+              <a 
+                key={link.name}
+                href={link.href} 
+                className={`transition-colors duration-300 hover:opacity-70 ${
+                  scrolled ? "text-white" : "text-foreground"
+                }`}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+
+          {/* Mobile Toggle */}
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden relative z-50 p-2 transition-colors duration-300"
+            aria-label="Toggle Menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6 text-white" />
+            ) : (
+              <Menu className={`w-6 h-6 transition-colors duration-300 ${scrolled ? "text-white" : "text-foreground"}`} />
+            )}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-40 bg-primary flex flex-col justify-center items-center p-12"
+          >
+            <div className="flex flex-col gap-12 text-center">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * i }}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-2xl text-white font-serif italic tracking-wide hover:opacity-70 transition-opacity"
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+            </div>
+            
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="absolute bottom-12 flex gap-8"
+            >
+              <a href="mailto:contact@chantalhammer.com" className="text-white/60 hover:text-white transition-colors">
+                <Mail className="w-6 h-6" />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
+                <Linkedin className="w-6 h-6" />
+              </a>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
 
 const TrustBar = () => {
   const items = [
@@ -53,18 +161,7 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden selection:bg-primary/20">
       
-      {/* Navigation (Simple) */}
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center mix-blend-difference text-primary-foreground pointer-events-none">
-        <div className="pointer-events-auto">
-          <Logo />
-        </div>
-        <div className="hidden md:flex gap-8 text-xs tracking-widest uppercase pointer-events-auto">
-          <a href="#narrative" className="hover:opacity-70 transition-opacity">The Mirror</a>
-          <a href="#methodology" className="hover:opacity-70 transition-opacity">The Pivot</a>
-          <a href="#authority" className="hover:opacity-70 transition-opacity">The Authority</a>
-          <a href="#contact" className="hover:opacity-70 transition-opacity">Contact</a>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* 1. Hero Section */}
       <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
@@ -198,6 +295,17 @@ export default function Home() {
                     <span className="text-xs uppercase tracking-widest text-muted-foreground">Former Leadership</span>
                   </div>
                 </div>
+                
+                <div className="mt-12 grid grid-cols-2 gap-8 border-t border-primary/20 pt-8">
+                  <div>
+                    <span className="block text-3xl font-serif mb-2">INSEAD</span>
+                    <span className="text-xs uppercase tracking-widest text-muted-foreground">Executive Coach</span>
+                  </div>
+                  <div>
+                    <span className="block text-3xl font-serif mb-2">4 Sons</span>
+                    <span className="text-xs uppercase tracking-widest text-muted-foreground">Resilience & Empathy Expert</span>
+                  </div>
+                </div>
               </FadeIn>
             </div>
           </div>
@@ -205,8 +313,8 @@ export default function Home() {
       </section>
 
       {/* Trust Bar Section */}
-      <TrustBar />
-
+      {/* <TrustBar /> */}
+      
       {/* 5. Contact Section */}
       <section id="contact" className="py-32 lg:py-40 px-6 bg-background">
         <div className="max-w-2xl mx-auto text-center">

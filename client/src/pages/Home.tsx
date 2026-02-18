@@ -97,7 +97,7 @@ const Navbar = () => {
           {/* Mobile Toggle */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden relative z-50 p-2 transition-colors duration-300"
+            className="md:hidden relative z-50 p-2 transition-colors duration-300 text-[#ffffff]"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? (
@@ -108,7 +108,6 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (

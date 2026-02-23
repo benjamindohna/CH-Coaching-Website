@@ -14,15 +14,15 @@ export const translations = {
     narrative: {
       quote: "\"Wo bleibe ich in all dem?\"",
       p1: "Viele Frauen über 40 befinden sich in dem Raum zwischen 'nach außen hin ist alles bestens' und 'im Inneren fehlt etwas Wesentliches'.",
-      p2: "Zwischen Verantwortung, Erwartungen und der leisen Sehnsucht, sich endlich wieder selbst zu wählen. Nach Jahren der Fürsorge für andere taucht eine tiefere Frage auf.",
-      p3: "Hier beginnt Ihre Reise: Eine Reise der Rückverbindung mit der Frau, die Sie sind – jenseits von Rollen, Routinen und Verpflichtungen."
+      p2: "Zwischen Verantwortung, Erwartungen und jahrelanger Fürsorge für andere taucht eine tiefere Frage auf: Wo bleibe ich in all dem?",
+      p3: "Hier begleite ich Sie: Eine Reise der Rückverbindung mit der Frau, die Sie sind – hinter Rollen, Routinen und Verpflichtungen."
     },
     methodology: {
       label: "Der Wendepunkt",
       title: "Ihr nächstes Kapitel,",
       subtitle: "definiert.",
-      p1: "Ich spezialisiere mich darauf, reife Frauen dabei zu unterstützen, ihr ungenutztes Potenzial zu entdecken. Egal, ob Sie bereit sind, Ihr Business neu zu definieren, Beziehungen auf Augenhöhe zu führen oder voll in Ihre Führungskraft und innere Stärke zu treten – ich begleite Sie.",
-      p2: "Ich helfe Ihnen, Klarheit darüber zu gewinnen, wie Ihre Zukunft wirklich aussehen soll – beruflich, persönlich und auf Seelenebene."
+      p1: "Ich spezialisiere mich darauf, reife Frauen dabei zu unterstützen, ihr ungenutztes, inneres Potenzial zu entdecken. Egal, ob Sie bereit sind, Ihr Business neu zu definieren, Beziehungen auf Augenhöhe und gegenseitigem Respekt zu führen oder voll in Ihre Führungskraft und Ihr Selbstvertrauen zu treten – ich begleite Sie.",
+      p2: "Meine Berufung ist es, Ihnen zu helfen, Klarheit über Ihren beruflichen und persönlichen Lebensweg zu gewinnen und Sie in die Frau zu verwandeln, die Sie schon immer sein wollten."
     },
     authority: {
       label: "Die Autorität",
@@ -64,16 +64,16 @@ export const translations = {
     },
     narrative: {
       quote: "\"Where am I in all of this?\"",
-      p1: "Many women over 40 find themselves in the space between 'everything looks fine on the outside' and 'something essential is missing on the inside.'",
-      p2: "Between responsibility, expectations, and the quiet longing to finally choose themselves again. After years of caring for others, a deeper question surfaces.",
-      p3: "This is where your journey begins: A journey of reconnecting with the woman you are—beyond roles, routines, and responsibilities."
+      p1: "Many women over 40 find themselves in the space between 'everything looks fine' and 'something is missing on the inside.'",
+      p2: "Between responsibility, expectations, and years of caring for others, a deeper question surfaces: Where am I in all of this?",
+      p3: "This is where I guide you: A journey of reconnecting with the woman you are—behind roles, routines, and responsibilities."
     },
     methodology: {
       label: "The Pivot",
       title: "Your Next Chapter,",
       subtitle: "Defined.",
-      p1: "I specialize in empowering mature women to rediscover their untapped potential. Whether you are ready to redefine your business, create relationships based on mutual respect, or step fully into your leadership and inner strength—I walk beside you.",
-      p2: "I help you gain clarity about how you truly want your future to look—professionally, personally, and on a soul level."
+      p1: "I specialize in empowering mature women to rediscover their untapped, inner potential. Whether you are ready to redefine your business, reestablish relationships built on mutual respect, or step fully into your leadership confidence—I accomodate you.",
+      p2: "My calling is to help you gain clarity about your professional and personal lifepath, and to transform you into the woman that you always wanted to be."
     },
     authority: {
       label: "The Authority",

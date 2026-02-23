@@ -44,7 +44,7 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
 
   const LanguageSwitch = ({ isMobile = false }: { isMobile?: boolean }) => (
     <div 
-      className={`relative flex items-center rounded-sm p-1 cursor-pointer w-[64px] h-8 border transition-all duration-300 ${
+      className={`relative flex items-center rounded-sm cursor-pointer w-[66px] h-8 border transition-all duration-300 ${
         isMobile || scrolled 
           ? "bg-white/10 border-white/20" 
           : "bg-primary/10 border-primary/20"
@@ -52,27 +52,27 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
       onClick={() => setLang(lang === "de" ? "en" : "de")}
     >
       <motion.div
-        className={`absolute rounded-sm w-6 h-6 shadow-sm transition-colors duration-300 ${
+        className={`absolute rounded-sm w-[30px] h-[24px] shadow-sm transition-colors duration-300 z-0 ${
           isMobile || scrolled ? "bg-white" : "bg-primary"
         }`}
         initial={false}
-        animate={{ x: lang === "de" ? 0 : 32 }}
+        animate={{ x: lang === "de" ? 2 : 34 }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
       />
       <div className="flex w-full h-full z-10 pointer-events-none relative">
-        <div className="w-[32px] flex items-center justify-center">
-          <span className={`text-[8px] font-bold transition-colors duration-300 ${
+        <div className="w-[33px] h-full flex items-center justify-center">
+          <span className={`text-[8px] font-bold transition-colors duration-300 leading-none flex items-center justify-center h-full w-full text-center tracking-tighter ${
             lang === "de" 
               ? (isMobile || scrolled ? "text-primary" : "text-white") 
               : (isMobile || scrolled ? "text-white/40" : "text-primary/40")
-          }`}>DE</span>
+          }`} style={{ padding: 0, margin: 0 }}>DE</span>
         </div>
-        <div className="w-[32px] flex items-center justify-center">
-          <span className={`text-[8px] font-bold transition-colors duration-300 ${
+        <div className="w-[33px] h-full flex items-center justify-center">
+          <span className={`text-[8px] font-bold transition-colors duration-300 leading-none flex items-center justify-center h-full w-full text-center tracking-tighter ${
             lang === "en" 
               ? (isMobile || scrolled ? "text-primary" : "text-white") 
               : (isMobile || scrolled ? "text-white/40" : "text-primary/40")
-          }`}>EN</span>
+          }`} style={{ padding: 0, margin: 0 }}>EN</span>
         </div>
       </div>
     </div>

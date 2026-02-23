@@ -44,7 +44,7 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
 
   const LanguageSwitch = ({ isMobile = false }: { isMobile?: boolean }) => (
     <div 
-      className={`relative flex items-center rounded-sm p-1 cursor-pointer w-16 h-8 border transition-all duration-300 ${
+      className={`relative flex items-center rounded-sm p-1 cursor-pointer w-[64px] h-8 border transition-all duration-300 ${
         isMobile || scrolled 
           ? "bg-white/10 border-white/20" 
           : "bg-primary/10 border-primary/20"
@@ -56,20 +56,24 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
           isMobile || scrolled ? "bg-white" : "bg-primary"
         }`}
         initial={false}
-        animate={{ x: lang === "de" ? 0 : 30 }}
+        animate={{ x: lang === "de" ? 0 : 32 }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
       />
-      <div className="flex justify-between items-center w-full h-full px-2 z-10 pointer-events-none">
-        <span className={`text-[8px] font-bold transition-colors duration-300 w-6 flex items-center justify-center ${
-          lang === "de" 
-            ? (isMobile || scrolled ? "text-primary" : "text-white") 
-            : (isMobile || scrolled ? "text-white/40" : "text-primary/40")
-        }`}>DE</span>
-        <span className={`text-[8px] font-bold transition-colors duration-300 w-6 flex items-center justify-center ${
-          lang === "en" 
-            ? (isMobile || scrolled ? "text-primary" : "text-white") 
-            : (isMobile || scrolled ? "text-white/40" : "text-primary/40")
-        }`}>EN</span>
+      <div className="flex w-full h-full z-10 pointer-events-none relative">
+        <div className="w-[32px] flex items-center justify-center">
+          <span className={`text-[8px] font-bold transition-colors duration-300 ${
+            lang === "de" 
+              ? (isMobile || scrolled ? "text-primary" : "text-white") 
+              : (isMobile || scrolled ? "text-white/40" : "text-primary/40")
+          }`}>DE</span>
+        </div>
+        <div className="w-[32px] flex items-center justify-center">
+          <span className={`text-[8px] font-bold transition-colors duration-300 ${
+            lang === "en" 
+              ? (isMobile || scrolled ? "text-primary" : "text-white") 
+              : (isMobile || scrolled ? "text-white/40" : "text-primary/40")
+          }`}>EN</span>
+        </div>
       </div>
     </div>
   );

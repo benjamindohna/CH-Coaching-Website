@@ -55,14 +55,14 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden min-[1000px]:flex items-center gap-10">
             <div className="flex gap-10 text-[10px] tracking-[0.2em] uppercase font-medium">
               {navLinks.map((link) => (
                 <a 
                   key={link.name}
                   href={link.href} 
                   className={`transition-colors duration-300 hover:opacity-70 ${
-                    scrolled ? "text-white" : "text-white"
+                    scrolled ? "text-white" : "text-primary"
                   }`}
                 >
                   {link.name}
@@ -70,27 +70,29 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
               ))}
             </div>
             
-            <div className="flex items-center gap-4 ml-4 border-l pl-8 border-white/20">
-              <button 
-                onClick={() => setLang("de")}
-                className={`text-[10px] tracking-widest uppercase transition-colors ${lang === "de" ? "font-bold text-white" : "text-white/60 hover:text-white"}`}
+            <div className="flex items-center ml-4 border-l pl-8 border-white/20">
+              <div 
+                className="relative flex items-center bg-white/10 backdrop-blur-sm rounded-full p-1 cursor-pointer w-16 h-8 border border-white/20"
+                onClick={() => setLang(lang === "de" ? "en" : "de")}
               >
-                DE
-              </button>
-              <span className="text-white/20">|</span>
-              <button 
-                onClick={() => setLang("en")}
-                className={`text-[10px] tracking-widest uppercase transition-colors ${lang === "en" ? "font-bold text-white" : "text-white/60 hover:text-white"}`}
-              >
-                EN
-              </button>
+                <motion.div
+                  className="absolute bg-white rounded-full w-6 h-6 shadow-sm"
+                  initial={false}
+                  animate={{ x: lang === "de" ? 0 : 30 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                />
+                <div className="flex justify-between w-full px-2 z-10 pointer-events-none">
+                  <span className={`text-[8px] font-bold ${lang === "de" ? "text-primary" : "text-white/40"}`}>DE</span>
+                  <span className={`text-[8px] font-bold ${lang === "en" ? "text-primary" : "text-white/40"}`}>EN</span>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Mobile Toggle */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden relative z-50 p-2 transition-colors duration-300"
+            className="min-[1000px]:hidden relative z-50 p-2 transition-colors duration-300"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? (

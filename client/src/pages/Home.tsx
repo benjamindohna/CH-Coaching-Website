@@ -53,28 +53,32 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
       style={{ padding: '4px' }}
     >
       <motion.div
-        className={`absolute rounded-[2px] shadow-sm transition-colors duration-300 z-0 ${
+        className={`absolute rounded-[2px] shadow-sm z-0 ${
           isMobile || scrolled ? "bg-white" : "bg-primary"
         }`}
         style={{ width: '28px', height: '22px' }}
         initial={false}
         animate={{ x: lang === "de" ? 0 : 28 }}
-        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+        transition={{ type: "tween", ease: [0.65, 0, 0.35, 1], duration: 0.4 }}
       />
       <div className="flex w-full h-full z-10 pointer-events-none relative">
         <div className="flex-1 h-full flex items-center justify-center">
-          <span className={`text-[8px] font-bold transition-colors duration-300 leading-none flex items-center justify-center h-full w-full text-center tracking-tighter ${
-            lang === "de" 
-              ? (isMobile || scrolled ? "text-primary" : "text-white") 
-              : (isMobile || scrolled ? "text-white/40" : "text-primary/40")
-          }`}>DE</span>
+          <motion.span 
+            animate={{ color: lang === "de" ? (isMobile || scrolled ? "#0F172A" : "#FFFFFF") : (isMobile || scrolled ? "rgba(255,255,255,0.4)" : "rgba(15,23,42,0.4)") }}
+            transition={{ duration: 0.4 }}
+            className="text-[8px] font-bold leading-none flex items-center justify-center h-full w-full text-center tracking-tighter"
+          >
+            DE
+          </motion.span>
         </div>
         <div className="flex-1 h-full flex items-center justify-center">
-          <span className={`text-[8px] font-bold transition-colors duration-300 leading-none flex items-center justify-center h-full w-full text-center tracking-tighter ${
-            lang === "en" 
-              ? (isMobile || scrolled ? "text-primary" : "text-white") 
-              : (isMobile || scrolled ? "text-white/40" : "text-primary/40")
-          }`}>EN</span>
+          <motion.span 
+            animate={{ color: lang === "en" ? (isMobile || scrolled ? "#0F172A" : "#FFFFFF") : (isMobile || scrolled ? "rgba(255,255,255,0.4)" : "rgba(15,23,42,0.4)") }}
+            transition={{ duration: 0.4 }}
+            className="text-[8px] font-bold leading-none flex items-center justify-center h-full w-full text-center tracking-tighter"
+          >
+            EN
+          </motion.span>
         </div>
       </div>
     </div>
@@ -216,10 +220,18 @@ export default function Home() {
     const saved = localStorage.getItem("lang");
     return (saved === "de" || saved === "en") ? saved : "de";
   });
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const setLang = (newLang: string) => {
-    setLangState(newLang as "de" | "en");
-    localStorage.setItem("lang", newLang);
+    if (newLang === lang) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setLangState(newLang as "de" | "en");
+      localStorage.setItem("lang", newLang);
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 50);
+    }, 400);
   };
 
   const t = translations[lang];
@@ -229,178 +241,186 @@ export default function Home() {
       
       <Navbar lang={lang} setLang={setLang} t={t} />
 
-      {/* 1. Hero Section */}
-      <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
-        <div className="relative h-[60vh] lg:h-screen w-full overflow-hidden">
-          <motion.img 
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.5 }}
-            src={images.hero} 
-            alt="Chantal Hammer Portrait" 
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
-        <div className="flex flex-col justify-center items-start px-8 lg:px-24 py-20 lg:py-0 bg-background">
-          <FadeIn>
-            <h1 className="text-5xl lg:text-7xl leading-[1.1] mb-8 text-foreground">
-              <span data-i18n="hero.title">{t.hero.title}</span> <br/> 
-              <span className="italic" data-i18n="hero.subtitle">{t.hero.subtitle}</span>
-            </h1>
-            <p className="text-lg lg:text-xl font-light text-muted-foreground mb-12 max-w-md leading-relaxed" data-i18n="hero.description">
-              {t.hero.description}
-            </p>
-            <a 
-              href="#contact"
-              className="group inline-flex items-center text-sm tracking-[0.2em] uppercase border-b border-foreground pb-1 hover:text-primary hover:border-primary transition-colors duration-300"
-            >
-              <span data-i18n="nav.contact">{t.nav.contact}</span>
-              <ArrowRight className="ml-4 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* 2. Narrative Section (The Mirror) */}
-      <section id="narrative" className="py-32 lg:py-40 px-6 max-w-4xl mx-auto text-center">
-        <FadeIn>
-          <h2 className="text-3xl lg:text-5xl mb-16 italic font-serif text-primary" data-i18n="narrative.quote">
-            {t.narrative.quote}
-          </h2>
-          <div className="space-y-8 text-lg lg:text-xl font-light leading-loose text-foreground/80">
-            <p data-i18n="narrative.p1">
-              {t.narrative.p1}
-            </p>
-            <p data-i18n="narrative.p2">
-              {t.narrative.p2}
-            </p>
-            <p className="font-medium text-foreground" data-i18n="narrative.p3">
-              {t.narrative.p3}
-            </p>
-          </div>
-        </FadeIn>
-      </section>
-
-      {/* 3. Methodology Section (The Pivot) */}
-      <section id="methodology" className="min-h-screen grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-24 items-center bg-white">
-        <div className="order-2 lg:order-1 px-8 lg:pl-24 py-20 lg:py-0">
-          <FadeIn>
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary mb-6 block" data-i18n="methodology.label">{t.methodology.label}</span>
-            <h2 className="text-4xl lg:text-6xl mb-10 leading-tight">
-              <span data-i18n="methodology.title">{t.methodology.title}</span> <br className="hidden lg:block"/>
-              <span className="italic text-muted-foreground" data-i18n="methodology.subtitle">{t.methodology.subtitle}</span>
-            </h2>
-            <div className="space-y-6 text-lg font-light leading-relaxed text-foreground/80 max-w-lg">
-              <p data-i18n="methodology.p1">
-                {t.methodology.p1}
-              </p>
-              <p data-i18n="methodology.p2">
-                {t.methodology.p2}
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-        <div className="order-1 lg:order-2 h-[60vh] lg:h-screen w-full relative overflow-hidden">
-          <FadeIn delay={0.2} className="w-full h-full">
-            <img 
-              src={images.methodology} 
-              alt="Lifestyle with dogs" 
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 ease-out"
+      <motion.div
+        animate={{ 
+          opacity: isTransitioning ? 0 : 1,
+          y: isTransitioning ? 20 : 0
+        }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {/* 1. Hero Section */}
+        <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
+          <div className="relative h-[60vh] lg:h-screen w-full overflow-hidden">
+            <motion.img 
+              initial={{ scale: 1.1, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1.5 }}
+              src={images.hero} 
+              alt="Chantal Hammer Portrait" 
+              className="absolute inset-0 w-full h-full object-cover"
             />
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* 4. Authority Section (The Bio) */}
-      <section id="authority" className="py-32 lg:py-40 bg-secondary">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5 relative aspect-[3/4] lg:aspect-[4/5]">
-               <FadeIn>
-                <div className="absolute inset-0 border border-primary/30 translate-x-4 translate-y-4 lg:translate-x-8 lg:translate-y-8 pointer-events-none" />
-                <img 
-                  src={images.authority} 
-                  alt="Chantal at work" 
-                  className="w-full h-full object-cover relative z-10 shadow-xl"
-                />
-              </FadeIn>
-            </div>
-            <div className="lg:col-span-1 lg:col-start-7 lg:col-end-13">
-              <FadeIn delay={0.2}>
-                <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary mb-6 block" data-i18n="authority.label">{t.authority.label}</span>
-                <h2 className="text-4xl lg:text-5xl mb-10 leading-tight text-foreground">
-                  <span data-i18n="authority.title">{t.authority.title}</span> <br/>
-                  <span className="italic text-primary/70" data-i18n="authority.subtitle">{t.authority.subtitle}</span>
-                </h2>
-                <div className="space-y-6 text-lg font-light leading-relaxed text-foreground/80">
-                  <p data-i18n="authority.p1">
-                    {t.authority.p1}
-                  </p>
-                  <p data-i18n="authority.p2">
-                    {t.authority.p2}
-                  </p>
-                  <p data-i18n="authority.p3">
-                    {t.authority.p3}
-                  </p>
-                </div>
-                
-                <div className="mt-12 grid grid-cols-2 gap-8 border-t border-primary/20 pt-8">
-                  <div>
-                    <span className="block text-3xl font-serif mb-2">25+</span>
-                    <span className="text-xs uppercase tracking-widest text-muted-foreground" data-i18n="authority.stat1">{t.authority.stat1}</span>
-                  </div>
-                  <div>
-                    <span className="block text-3xl font-serif mb-2">LVMH</span>
-                    <span className="text-xs uppercase tracking-widest text-muted-foreground" data-i18n="authority.stat2">{t.authority.stat2}</span>
-                  </div>
-                </div>
-              </FadeIn>
-            </div>
           </div>
-        </div>
-      </section>
+          <div className="flex flex-col justify-center items-start px-8 lg:px-24 py-20 lg:py-0 bg-background">
+            <FadeIn>
+              <h1 className="text-5xl lg:text-7xl leading-[1.1] mb-8 text-foreground">
+                <span data-i18n="hero.title">{t.hero.title}</span> <br/> 
+                <span className="italic" data-i18n="hero.subtitle">{t.hero.subtitle}</span>
+              </h1>
+              <p className="text-lg lg:text-xl font-light text-muted-foreground mb-12 max-w-md leading-relaxed" data-i18n="hero.description">
+                {t.hero.description}
+              </p>
+              <a 
+                href="#contact"
+                className="group inline-flex items-center text-sm tracking-[0.2em] uppercase border-b border-foreground pb-1 hover:text-primary hover:border-primary transition-colors duration-300"
+              >
+                <span data-i18n="nav.contact">{t.nav.contact}</span>
+                <ArrowRight className="ml-4 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </FadeIn>
+          </div>
+        </section>
 
-      {/* Trust Bar Section */}
-      <TrustBar t={t} />
-
-      {/* 5. Contact Section */}
-      <section id="contact" className="py-32 lg:py-40 px-6 bg-background">
-        <div className="max-w-2xl mx-auto text-center">
+        {/* 2. Narrative Section (The Mirror) */}
+        <section id="narrative" className="py-32 lg:py-40 px-6 max-w-4xl mx-auto text-center">
           <FadeIn>
-            <h2 className="text-4xl lg:text-6xl mb-6 text-foreground" data-i18n="contact.title">{t.contact.title}</h2>
-            <p className="text-xl text-muted-foreground font-light mb-16" data-i18n="contact.description">
-              {t.contact.description}
-            </p>
-            
-            <div className="border border-primary/50 p-12 lg:p-16 relative bg-white/50 backdrop-blur-sm">
-              <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-4 text-xs tracking-[0.2em] uppercase text-primary" data-i18n="contact.label">
-                {t.contact.label}
-              </span>
-              
-              <div className="space-y-8">
-                <a href="mailto:contact@chantalhammer.com" className="flex items-center justify-center gap-3 text-lg hover:text-primary transition-colors">
-                  <Mail className="w-5 h-5 text-primary/60" />
-                  contact@chantalhammer.com
-                </a>
-                
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 text-lg hover:text-primary transition-colors">
-                  <Linkedin className="w-5 h-5 text-primary/60" />
-                  <span data-i18n="contact.linkedin">{t.contact.linkedin}</span>
-                </a>
+            <h2 className="text-3xl lg:text-5xl mb-16 italic font-serif text-primary" data-i18n="narrative.quote">
+              {t.narrative.quote}
+            </h2>
+            <div className="space-y-8 text-lg lg:text-xl font-light leading-loose text-foreground/80">
+              <p data-i18n="narrative.p1">
+                {t.narrative.p1}
+              </p>
+              <p data-i18n="narrative.p2">
+                {t.narrative.p2}
+              </p>
+              <p className="font-medium text-foreground" data-i18n="narrative.p3">
+                {t.narrative.p3}
+              </p>
+            </div>
+          </FadeIn>
+        </section>
+
+        {/* 3. Methodology Section (The Pivot) */}
+        <section id="methodology" className="min-h-screen grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-24 items-center bg-white">
+          <div className="order-2 lg:order-1 px-8 lg:pl-24 py-20 lg:py-0">
+            <FadeIn>
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary mb-6 block" data-i18n="methodology.label">{t.methodology.label}</span>
+              <h2 className="text-4xl lg:text-6xl mb-10 leading-tight">
+                <span data-i18n="methodology.title">{t.methodology.title}</span> <br className="hidden lg:block"/>
+                <span className="italic text-muted-foreground" data-i18n="methodology.subtitle">{t.methodology.subtitle}</span>
+              </h2>
+              <div className="space-y-6 text-lg font-light leading-relaxed text-foreground/80 max-w-lg">
+                <p data-i18n="methodology.p1">
+                  {t.methodology.p1}
+                </p>
+                <p data-i18n="methodology.p2">
+                  {t.methodology.p2}
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+          <div className="order-1 lg:order-2 h-[60vh] lg:h-screen w-full relative overflow-hidden">
+            <FadeIn delay={0.2} className="w-full h-full">
+              <img 
+                src={images.methodology} 
+                alt="Lifestyle with dogs" 
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 ease-out"
+              />
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* 4. Authority Section (The Bio) */}
+        <section id="authority" className="py-32 lg:py-40 bg-secondary">
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div className="lg:col-span-5 relative aspect-[3/4] lg:aspect-[4/5]">
+                 <FadeIn>
+                  <div className="absolute inset-0 border border-primary/30 translate-x-4 translate-y-4 lg:translate-x-8 lg:translate-y-8 pointer-events-none" />
+                  <img 
+                    src={images.authority} 
+                    alt="Chantal at work" 
+                    className="w-full h-full object-cover relative z-10 shadow-xl"
+                  />
+                </FadeIn>
+              </div>
+              <div className="lg:col-span-1 lg:col-start-7 lg:col-end-13">
+                <FadeIn delay={0.2}>
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary mb-6 block" data-i18n="authority.label">{t.authority.label}</span>
+                  <h2 className="text-4xl lg:text-5xl mb-10 leading-tight text-foreground">
+                    <span data-i18n="authority.title">{t.authority.title}</span> <br/>
+                    <span className="italic text-primary/70" data-i18n="authority.subtitle">{t.authority.subtitle}</span>
+                  </h2>
+                  <div className="space-y-6 text-lg font-light leading-relaxed text-foreground/80">
+                    <p data-i18n="authority.p1">
+                      {t.authority.p1}
+                    </p>
+                    <p data-i18n="authority.p2">
+                      {t.authority.p2}
+                    </p>
+                    <p data-i18n="authority.p3">
+                      {t.authority.p3}
+                    </p>
+                  </div>
+                  
+                  <div className="mt-12 grid grid-cols-2 gap-8 border-t border-primary/20 pt-8">
+                    <div>
+                      <span className="block text-3xl font-serif mb-2">25+</span>
+                      <span className="text-xs uppercase tracking-widest text-muted-foreground" data-i18n="authority.stat1">{t.authority.stat1}</span>
+                    </div>
+                    <div>
+                      <span className="block text-3xl font-serif mb-2">LVMH</span>
+                      <span className="text-xs uppercase tracking-widest text-muted-foreground" data-i18n="authority.stat2">{t.authority.stat2}</span>
+                    </div>
+                  </div>
+                </FadeIn>
               </div>
             </div>
-          </FadeIn>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <footer className="py-16 px-6 bg-secondary/30 border-t border-primary/10">
-        <div className="container mx-auto flex flex-col items-center">
-          <Logo variant="footer" />
-          <p className="mt-8 text-[10px] uppercase tracking-widest text-muted-foreground/60">
-            &copy; {new Date().getFullYear()} CH Executive Coaching. <span data-i18n="footer.rights">{t.footer.rights}</span>
-          </p>
-        </div>
-      </footer>
+        {/* Trust Bar Section */}
+        <TrustBar t={t} />
+
+        {/* 5. Contact Section */}
+        <section id="contact" className="py-32 lg:py-40 px-6 bg-background">
+          <div className="max-w-2xl mx-auto text-center">
+            <FadeIn>
+              <h2 className="text-4xl lg:text-6xl mb-6 text-foreground" data-i18n="contact.title">{t.contact.title}</h2>
+              <p className="text-xl text-muted-foreground font-light mb-16" data-i18n="contact.description">
+                {t.contact.description}
+              </p>
+              
+              <div className="border border-primary/50 p-12 lg:p-16 relative bg-white/50 backdrop-blur-sm">
+                <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-4 text-xs tracking-[0.2em] uppercase text-primary" data-i18n="contact.label">
+                  {t.contact.label}
+                </span>
+                
+                <div className="space-y-8">
+                  <a href="mailto:contact@chantalhammer.com" className="flex items-center justify-center gap-3 text-lg hover:text-primary transition-colors">
+                    <Mail className="w-5 h-5 text-primary/60" />
+                    contact@chantalhammer.com
+                  </a>
+                  
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 text-lg hover:text-primary transition-colors">
+                    <Linkedin className="w-5 h-5 text-primary/60" />
+                    <span data-i18n="contact.linkedin">{t.contact.linkedin}</span>
+                  </a>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+
+        <footer className="py-16 px-6 bg-secondary/30 border-t border-primary/10">
+          <div className="container mx-auto flex flex-col items-center">
+            <Logo variant="footer" />
+            <p className="mt-8 text-[10px] uppercase tracking-widest text-muted-foreground/60">
+              &copy; {new Date().getFullYear()} CH Executive Coaching. <span data-i18n="footer.rights">{t.footer.rights}</span>
+            </p>
+          </div>
+        </footer>
+      </motion.div>
     </div>
   );
 }

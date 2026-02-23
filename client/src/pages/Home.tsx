@@ -44,35 +44,37 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
 
   const LanguageSwitch = ({ isMobile = false }: { isMobile?: boolean }) => (
     <div 
-      className={`relative flex items-center rounded-sm cursor-pointer w-[66px] h-8 border transition-all duration-300 ${
+      className={`relative flex items-center rounded-sm cursor-pointer w-[66px] h-8 border transition-all duration-300 bg-clip-padding ${
         isMobile || scrolled 
           ? "bg-white/10 border-white/20" 
           : "bg-primary/10 border-primary/20"
       }`}
       onClick={() => setLang(lang === "de" ? "en" : "de")}
+      style={{ padding: '4px' }}
     >
       <motion.div
-        className={`absolute rounded-sm w-[30px] h-[24px] shadow-sm transition-colors duration-300 z-0 ${
+        className={`absolute rounded-[2px] shadow-sm transition-colors duration-300 z-0 ${
           isMobile || scrolled ? "bg-white" : "bg-primary"
         }`}
+        style={{ width: '28px', height: '22px' }}
         initial={false}
-        animate={{ x: lang === "de" ? 2 : 34 }}
+        animate={{ x: lang === "de" ? 0 : 28 }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
       />
       <div className="flex w-full h-full z-10 pointer-events-none relative">
-        <div className="w-[33px] h-full flex items-center justify-center">
+        <div className="flex-1 h-full flex items-center justify-center">
           <span className={`text-[8px] font-bold transition-colors duration-300 leading-none flex items-center justify-center h-full w-full text-center tracking-tighter ${
             lang === "de" 
               ? (isMobile || scrolled ? "text-primary" : "text-white") 
               : (isMobile || scrolled ? "text-white/40" : "text-primary/40")
-          }`} style={{ padding: 0, margin: 0 }}>DE</span>
+          }`}>DE</span>
         </div>
-        <div className="w-[33px] h-full flex items-center justify-center">
+        <div className="flex-1 h-full flex items-center justify-center">
           <span className={`text-[8px] font-bold transition-colors duration-300 leading-none flex items-center justify-center h-full w-full text-center tracking-tighter ${
             lang === "en" 
               ? (isMobile || scrolled ? "text-primary" : "text-white") 
               : (isMobile || scrolled ? "text-white/40" : "text-primary/40")
-          }`} style={{ padding: 0, margin: 0 }}>EN</span>
+          }`}>EN</span>
         </div>
       </div>
     </div>

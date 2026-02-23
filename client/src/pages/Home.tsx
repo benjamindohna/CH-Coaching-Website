@@ -59,13 +59,13 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
         animate={{ x: lang === "de" ? 0 : 30 }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
       />
-      <div className="flex justify-between w-full px-2 z-10 pointer-events-none">
-        <span className={`text-[8px] font-bold transition-colors duration-300 ${
+      <div className="flex justify-between items-center w-full h-full px-2 z-10 pointer-events-none">
+        <span className={`text-[8px] font-bold transition-colors duration-300 w-6 flex items-center justify-center ${
           lang === "de" 
             ? (isMobile || scrolled ? "text-primary" : "text-white") 
             : (isMobile || scrolled ? "text-white/40" : "text-primary/40")
         }`}>DE</span>
-        <span className={`text-[8px] font-bold transition-colors duration-300 ${
+        <span className={`text-[8px] font-bold transition-colors duration-300 w-6 flex items-center justify-center ${
           lang === "en" 
             ? (isMobile || scrolled ? "text-primary" : "text-white") 
             : (isMobile || scrolled ? "text-white/40" : "text-primary/40")

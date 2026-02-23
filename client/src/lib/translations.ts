@@ -14,8 +14,8 @@ export const translations = {
     narrative: {
       quote: "\"Wo bleibe ich in all dem?\"",
       p1: "Viele Frauen über 40 befinden sich in dem Raum zwischen 'nach außen hin ist alles bestens' und 'im Inneren fehlt etwas Wesentliches'.",
-      p2: "Zwischen Verantwortung, Erwartungen und der leisen Sehnsucht, sich endlich wieder selbst zu wählen. Nach Jahren der Fürsorge für andere taucht eine tiefere Frage auf.",
-      p3: "Hier beginnt Ihre Reise: Eine Reise der Rückverbindung mit der Frau, die Sie sind – jenseits von Rollen, Routinen und Verpflichtungen."
+      p2: "Zwischen Verantwortung, Erwartungen und jahrelanger Fürsorge für andere taucht eine tiefere Frage auf: Wo bleibe ich in all dem?",
+      p3: "Hier begleite ich Sie: Eine Reise der Rückverbindung mit der Frau, die Sie sind – hinter Rollen, Routinen und Verpflichtungen."
     },
     methodology: {
       label: "Der Wendepunkt",

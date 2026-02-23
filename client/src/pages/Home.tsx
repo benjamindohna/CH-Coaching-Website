@@ -42,6 +42,38 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
     { name: t.nav.contact, href: "#contact" },
   ];
 
+  const LanguageSwitch = ({ isMobile = false }: { isMobile?: boolean }) => (
+    <div 
+      className={`relative flex items-center rounded-sm p-1 cursor-pointer w-16 h-8 border transition-all duration-300 ${
+        isMobile || scrolled 
+          ? "bg-white/10 border-white/20" 
+          : "bg-primary/10 border-primary/20"
+      }`}
+      onClick={() => setLang(lang === "de" ? "en" : "de")}
+    >
+      <motion.div
+        className={`absolute rounded-sm w-6 h-6 shadow-sm transition-colors duration-300 ${
+          isMobile || scrolled ? "bg-white" : "bg-primary"
+        }`}
+        initial={false}
+        animate={{ x: lang === "de" ? 0 : 30 }}
+        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+      />
+      <div className="flex justify-between w-full px-2 z-10 pointer-events-none">
+        <span className={`text-[8px] font-bold transition-colors duration-300 ${
+          lang === "de" 
+            ? (isMobile || scrolled ? "text-primary" : "text-white") 
+            : (isMobile || scrolled ? "text-white/40" : "text-primary/40")
+        }`}>DE</span>
+        <span className={`text-[8px] font-bold transition-colors duration-300 ${
+          lang === "en" 
+            ? (isMobile || scrolled ? "text-primary" : "text-white") 
+            : (isMobile || scrolled ? "text-white/40" : "text-primary/40")
+        }`}>EN</span>
+      </div>
+    </div>
+  );
+
   return (
     <>
       <nav 
@@ -55,7 +87,7 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden min-[1000px]:flex items-center gap-10">
+          <div className="hidden min-[1000px]:flex items-center gap-6">
             <div className="flex gap-10 text-[10px] tracking-[0.2em] uppercase font-medium">
               {navLinks.map((link) => (
                 <a 
@@ -70,22 +102,8 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
               ))}
             </div>
             
-            <div className="flex items-center ml-4 border-l pl-8 border-white/20">
-              <div 
-                className="relative flex items-center bg-white/10 backdrop-blur-sm rounded-full p-1 cursor-pointer w-16 h-8 border border-white/20"
-                onClick={() => setLang(lang === "de" ? "en" : "de")}
-              >
-                <motion.div
-                  className="absolute bg-white rounded-full w-6 h-6 shadow-sm"
-                  initial={false}
-                  animate={{ x: lang === "de" ? 0 : 30 }}
-                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                />
-                <div className="flex justify-between w-full px-2 z-10 pointer-events-none">
-                  <span className={`text-[8px] font-bold ${lang === "de" ? "text-primary" : "text-white/40"}`}>DE</span>
-                  <span className={`text-[8px] font-bold ${lang === "en" ? "text-primary" : "text-white/40"}`}>EN</span>
-                </div>
-              </div>
+            <div className="flex items-center border-l pl-6 border-white/10">
+              <LanguageSwitch />
             </div>
           </div>
 
@@ -136,18 +154,7 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
               transition={{ delay: 0.5 }}
               className="flex items-center gap-6 mb-12"
             >
-              <button 
-                onClick={() => { setLang("de"); setMobileMenuOpen(false); }}
-                className={`text-sm tracking-widest uppercase transition-colors ${lang === "de" ? "font-bold text-white underline underline-offset-8" : "text-white/60"}`}
-              >
-                Deutsch
-              </button>
-              <button 
-                onClick={() => { setLang("en"); setMobileMenuOpen(false); }}
-                className={`text-sm tracking-widest uppercase transition-colors ${lang === "en" ? "font-bold text-white underline underline-offset-8" : "text-white/60"}`}
-              >
-                English
-              </button>
+              <LanguageSwitch isMobile />
             </motion.div>
             
             <motion.div 

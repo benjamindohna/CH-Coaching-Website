@@ -372,7 +372,7 @@ export default function Home() {
                   
                   <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-primary/20 pt-8">
                     <div>
-                      <span className="block text-3xl font-serif mb-2">25+</span>
+                      <span className="block text-3xl font-serif mb-2 text-primary/80">25+</span>
                       <span className="text-xs uppercase tracking-widest text-muted-foreground" data-i18n="authority.stat1">{t.authority.stat1}</span>
                     </div>
                     <div>
@@ -380,7 +380,7 @@ export default function Home() {
                       <span className="text-xs uppercase tracking-widest text-muted-foreground">Executive Coach</span>
                     </div>
                     <div>
-                      <span className="block text-3xl font-serif mb-2">LVMH</span>
+                      <span className="block text-3xl font-serif mb-2 text-primary/80">LVMH</span>
                       <span className="text-xs uppercase tracking-widest text-muted-foreground" data-i18n="authority.stat2">{t.authority.stat2}</span>
                     </div>
                     <div>

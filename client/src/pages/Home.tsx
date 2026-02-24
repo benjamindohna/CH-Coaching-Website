@@ -58,14 +58,14 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
         }`}
         style={{ width: '28px', height: '22px' }}
         initial={false}
-        animate={{ x: lang === "de" ? 0 : 28 }}
-        transition={{ type: "tween", ease: [0.65, 0, 0.35, 1], duration: 0.4 }}
+        animate={{ x: lang === "de" ? 0 : 30 }}
+        transition={{ type: "spring", stiffness: 380, damping: 30 }}
       />
       <div className="flex w-full h-full z-10 pointer-events-none relative">
         <div className="flex-1 h-full flex items-center justify-center">
           <motion.span 
             animate={{ color: lang === "de" ? (isMobile || scrolled ? "#0F172A" : "#FFFFFF") : (isMobile || scrolled ? "rgba(255,255,255,0.4)" : "rgba(15,23,42,0.4)") }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.2 }}
             className="text-[8px] font-bold leading-none flex items-center justify-center h-full w-full text-center tracking-tighter"
           >
             DE
@@ -74,7 +74,7 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
         <div className="flex-1 h-full flex items-center justify-center">
           <motion.span 
             animate={{ color: lang === "en" ? (isMobile || scrolled ? "#0F172A" : "#FFFFFF") : (isMobile || scrolled ? "rgba(255,255,255,0.4)" : "rgba(15,23,42,0.4)") }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.2 }}
             className="text-[8px] font-bold leading-none flex items-center justify-center h-full w-full text-center tracking-tighter"
           >
             EN

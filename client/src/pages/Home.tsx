@@ -87,17 +87,21 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
   return (
     <>
       <nav 
-        className={`fixed top-0 left-0 w-full z-50 px-6 py-6 lg:px-12 transition-all duration-300 ease-in-out ${
-          scrolled ? "bg-primary shadow-lg py-4" : "bg-transparent py-8"
+        className={`fixed top-0 left-0 w-full z-50 px-6 py-6 lg:px-12 transition-all duration-500 ease-in-out ${
+          scrolled ? "bg-primary shadow-lg py-4 opacity-100 translate-y-0" : "bg-transparent py-8 opacity-0 lg:opacity-100 -translate-y-2 lg:translate-y-0 pointer-events-none lg:pointer-events-auto"
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="relative z-50">
+          <div className={`relative z-50 transition-all duration-500 ease-in-out ${
+            scrolled ? "opacity-100 translate-y-0" : "opacity-0 lg:opacity-100 -translate-y-4 lg:translate-y-0"
+          }`}>
             <Logo scrolled={scrolled} />
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden min-[1000px]:flex items-center gap-6">
+          <div className={`hidden min-[1000px]:flex items-center gap-6 transition-all duration-500 ease-in-out ${
+            scrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+          }`}>
             <div className="flex gap-10 text-[10px] tracking-[0.2em] uppercase font-medium">
               {navLinks.map((link) => (
                 <a 
@@ -117,18 +121,30 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
             </div>
           </div>
 
-          {/* Mobile Toggle */}
-          <button 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="min-[1000px]:hidden relative z-50 p-2 transition-colors duration-300"
-            aria-label="Toggle Menu"
-          >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-white" />
-            ) : (
-              <Menu className={`w-6 h-6 transition-colors duration-300 text-white`} />
-            )}
-          </button>
+          <div className="flex items-center gap-4">
+            {/* CTA Button - Always Visible on Desktop */}
+            <a 
+              href="#contact"
+              className="hidden min-[1000px]:flex items-center text-[10px] tracking-[0.2em] uppercase border border-white/30 px-6 py-2.5 hover:bg-white hover:text-primary transition-all duration-300 text-white"
+            >
+              {t.nav.contact}
+            </a>
+
+            {/* Mobile Toggle */}
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`min-[1000px]:hidden relative z-50 p-2 transition-all duration-500 ease-in-out ${
+                scrolled || mobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+              }`}
+              aria-label="Toggle Menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6 text-white" />
+              ) : (
+                <Menu className={`w-6 h-6 transition-colors duration-300 text-white`} />
+              )}
+            </button>
+          </div>
         </div>
       </nav>
 

@@ -384,8 +384,8 @@ export default function Home() {
                       <span className="text-xs uppercase tracking-widest text-muted-foreground" data-i18n="authority.stat2">{t.authority.stat2}</span>
                     </div>
                     <div>
-                      <span className="block text-3xl font-serif mb-2 text-primary/80">4 Sons</span>
-                      <span className="text-xs uppercase tracking-widest text-muted-foreground">Resilience & Empathy Expert</span>
+                      <span className="block text-3xl font-serif mb-2 text-primary/80" data-i18n="authority.stat3">{t.authority.stat3}</span>
+                      <span className="text-xs uppercase tracking-widest text-muted-foreground" data-i18n="authority.stat4">{t.authority.stat4}</span>
                     </div>
                   </div>
                 </FadeIn>

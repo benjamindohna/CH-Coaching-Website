@@ -32,7 +32,9 @@ export const translations = {
       p2: "Von Führungspositionen bei Polo Ralph Lauren und LVMH bis hin zum Beiratsvorsitz der Hammer AG verbinde ich geschäftliche Präzision mit tiefem menschlichem Verständnis. Als Mutter von vier Söhnen bringe ich eine einzigartige Mischung aus Resilienz, Empathie und praktischer Führung in meine Arbeit ein.",
       p3: "Fließend in fünf Sprachen agiere ich sicher in internationalen Umfeldern und coache Frauen, die bereit für Veränderung sind und bereit sind, mit radikaler Ehrlichkeit in den Spiegel zu schauen.",
       stat1: "Jahre Erfahrung",
-      stat2: "Ehemalige Führungskraft"
+      stat2: "Ehemalige Führungskraft",
+      stat3: "4 Söhne",
+      stat4: "Resilienz- & Empathie-Expertin"
     },
     trust: {
       insead: "INSEAD Executive Coach",
@@ -83,7 +85,9 @@ export const translations = {
       p2: "From leading roles at Polo Ralph Lauren and LVMH to serving as Board Chair at Hammer AG, I combine high-level business precision with deep human understanding. As a mother of four sons, I bring a unique blend of resilience, empathy, and practical leadership to my work.",
       p3: "Fluent in five languages, I operate confidently across international environments, coaching women who are ready for change and willing to look in the mirror with radical honesty.",
       stat1: "Years Experience",
-      stat2: "Former Leadership"
+      stat2: "Former Leadership",
+      stat3: "4 Sons",
+      stat4: "Resilience & Empathy Expert"
     },
     trust: {
       insead: "INSEAD Executive Coach",

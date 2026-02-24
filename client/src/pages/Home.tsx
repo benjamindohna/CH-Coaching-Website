@@ -56,7 +56,7 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
         className={`absolute rounded-[2px] shadow-sm z-0 ${
           isMobile || scrolled ? "bg-white" : "bg-primary"
         }`}
-        style={{ width: '28px', height: '22px' }}
+        style={{ width: '28px', height: '22px', left: '4px', top: '4px' }}
         initial={false}
         animate={{ x: lang === "de" ? 0 : 30 }}
         transition={{ type: "spring", stiffness: 380, damping: 30 }}

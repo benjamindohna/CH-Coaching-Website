@@ -343,7 +343,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-5 relative aspect-[3/4] lg:aspect-[4/5]">
                  <FadeIn>
-                  <div className="absolute inset-0 border border-primary/30 translate-x-4 translate-y-4 lg:translate-x-8 lg:translate-y-8 pointer-events-none" />
+                  <div className="absolute inset-0 border border-primary/30 translate-x-4 translate-y-4 lg:translate-x-8 lg:translate-y-8 pointer-events-none h-full lg:h-[120%]" />
                   <img 
                     src={images.authority} 
                     alt="Chantal at work" 

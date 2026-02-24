@@ -47,15 +47,13 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
       className={`relative flex items-center rounded-sm cursor-pointer w-[66px] h-8 border transition-all duration-300 bg-clip-padding ${
         isMobile || scrolled 
           ? "bg-white/10 border-white/20" 
-          : "bg-primary/10 border-primary/20"
+          : "bg-white/10 border-white/20"
       }`}
       onClick={() => setLang(lang === "de" ? "en" : "de")}
       style={{ padding: '4px' }}
     >
       <motion.div
-        className={`absolute rounded-[2px] shadow-sm z-0 ${
-          isMobile || scrolled ? "bg-white" : "bg-primary"
-        }`}
+        className="absolute rounded-[2px] shadow-sm z-0 bg-white"
         style={{ width: '28px', height: '22px' }}
         initial={false}
         animate={{ x: lang === "de" ? 0 : 28 }}
@@ -64,7 +62,7 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
       <div className="flex w-full h-full z-10 pointer-events-none relative">
         <div className="flex-1 h-full flex items-center justify-center">
           <motion.span 
-            animate={{ color: lang === "de" ? (isMobile || scrolled ? "#0F172A" : "#FFFFFF") : (isMobile || scrolled ? "rgba(255,255,255,0.4)" : "rgba(15,23,42,0.4)") }}
+            animate={{ color: lang === "de" ? "#0F172A" : "rgba(255,255,255,0.4)" }}
             transition={{ duration: 0.4 }}
             className="text-[8px] font-bold leading-none flex items-center justify-center h-full w-full text-center tracking-tighter"
           >
@@ -73,7 +71,7 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
         </div>
         <div className="flex-1 h-full flex items-center justify-center">
           <motion.span 
-            animate={{ color: lang === "en" ? (isMobile || scrolled ? "#0F172A" : "#FFFFFF") : (isMobile || scrolled ? "rgba(255,255,255,0.4)" : "rgba(15,23,42,0.4)") }}
+            animate={{ color: lang === "en" ? "#0F172A" : "rgba(255,255,255,0.4)" }}
             transition={{ duration: 0.4 }}
             className="text-[8px] font-bold leading-none flex items-center justify-center h-full w-full text-center tracking-tighter"
           >
@@ -88,31 +86,40 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
     <>
       <nav 
         className={`fixed top-0 left-0 w-full z-50 px-6 py-6 lg:px-12 transition-all duration-300 ease-in-out ${
-          scrolled ? "bg-primary shadow-lg py-4" : "bg-transparent py-8"
+          scrolled 
+            ? "bg-primary shadow-lg py-4" 
+            : "max-[999px]:bg-primary bg-transparent py-8"
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="relative z-50">
-            <Logo scrolled={scrolled} />
+            <Logo scrolled={true} />
           </div>
 
           {/* Desktop Nav */}
           <div className="hidden min-[1000px]:flex items-center gap-6">
-            <div className="flex gap-10 text-[10px] tracking-[0.2em] uppercase font-medium">
+            <motion.div 
+              initial={false}
+              animate={{ 
+                opacity: scrolled ? 1 : 0,
+                y: scrolled ? 0 : -10,
+                pointerEvents: scrolled ? "auto" : "none"
+              }}
+              transition={{ duration: 0.3 }}
+              className="flex gap-10 text-[10px] tracking-[0.2em] uppercase font-medium"
+            >
               {navLinks.map((link) => (
                 <a 
                   key={link.name}
                   href={link.href} 
-                  className={`transition-colors duration-300 hover:opacity-70 ${
-                    scrolled ? "text-white" : "text-primary"
-                  }`}
+                  className="transition-colors duration-300 hover:opacity-70 text-white"
                 >
                   {link.name}
                 </a>
               ))}
-            </div>
+            </motion.div>
             
-            <div className="flex items-center border-l pl-6 border-white/10">
+            <div className={`flex items-center border-l pl-6 transition-colors duration-300 ${scrolled ? 'border-white/10' : 'border-transparent'}`}>
               <LanguageSwitch />
             </div>
           </div>
@@ -126,7 +133,7 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
             {mobileMenuOpen ? (
               <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className={`w-6 h-6 transition-colors duration-300 text-white`} />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </div>

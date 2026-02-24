@@ -50,35 +50,23 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
           : "bg-primary/10 border-primary/20"
       }`}
       onClick={() => setLang(lang === "de" ? "en" : "de")}
-      style={{ padding: '2px' }}
+      style={{ padding: '4px' }}
     >
-      <div className="absolute inset-0 w-full h-full pointer-events-none p-[2px]">
-        <motion.div
-          layout
-          className={`h-full rounded-[2px] shadow-sm ${
-            isMobile || scrolled ? "bg-white" : "bg-primary"
-          }`}
-          style={{ 
-            width: '30px',
-            position: 'absolute',
-            left: lang === "de" ? '2px' : '32px',
-            top: '2px',
-            bottom: '2px'
-          }}
-          transition={{ 
-            type: "spring", 
-            stiffness: 500, 
-            damping: 35,
-            mass: 1
-          }}
-        />
-      </div>
+      <motion.div
+        className={`absolute rounded-[2px] shadow-sm z-0 ${
+          isMobile || scrolled ? "bg-white" : "bg-primary"
+        }`}
+        style={{ width: '28px', height: '22px' }}
+        initial={false}
+        animate={{ x: lang === "de" ? 0 : 28 }}
+        transition={{ type: "tween", ease: [0.65, 0, 0.35, 1], duration: 0.4 }}
+      />
       <div className="flex w-full h-full z-10 pointer-events-none relative">
         <div className="flex-1 h-full flex items-center justify-center">
           <motion.span 
             animate={{ color: lang === "de" ? (isMobile || scrolled ? "#0F172A" : "#FFFFFF") : (isMobile || scrolled ? "rgba(255,255,255,0.4)" : "rgba(15,23,42,0.4)") }}
-            transition={{ duration: 0.2 }}
-            className="text-[9px] font-bold leading-none flex items-center justify-center h-full w-full text-center tracking-tighter"
+            transition={{ duration: 0.4 }}
+            className="text-[8px] font-bold leading-none flex items-center justify-center h-full w-full text-center tracking-tighter"
           >
             DE
           </motion.span>
@@ -86,8 +74,8 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
         <div className="flex-1 h-full flex items-center justify-center">
           <motion.span 
             animate={{ color: lang === "en" ? (isMobile || scrolled ? "#0F172A" : "#FFFFFF") : (isMobile || scrolled ? "rgba(255,255,255,0.4)" : "rgba(15,23,42,0.4)") }}
-            transition={{ duration: 0.2 }}
-            className="text-[9px] font-bold leading-none flex items-center justify-center h-full w-full text-center tracking-tighter"
+            transition={{ duration: 0.4 }}
+            className="text-[8px] font-bold leading-none flex items-center justify-center h-full w-full text-center tracking-tighter"
           >
             EN
           </motion.span>

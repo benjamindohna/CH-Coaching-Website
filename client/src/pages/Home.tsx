@@ -342,8 +342,8 @@ export default function Home() {
         {/* 4. Authority Section (The Bio) */}
         <section id="authority" className="py-32 lg:py-40 bg-secondary">
           <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-5 relative aspect-[3/4] lg:aspect-[4/5]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start lg:items-start">
+              <div className="lg:col-span-5 relative aspect-[3/4] lg:aspect-[4/5] self-start">
                 <div className="relative h-full w-full">
                   <div className="absolute inset-0 border border-primary/30 translate-x-4 translate-y-4 lg:translate-x-8 lg:translate-y-8 pointer-events-none h-full lg:h-[120%] hidden min-[1000px]:block" />
                   <div className="absolute inset-0 border border-primary/30 translate-x-4 translate-y-4 pointer-events-none h-full min-[1000px]:hidden" />

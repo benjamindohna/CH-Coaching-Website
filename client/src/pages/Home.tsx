@@ -333,7 +333,7 @@ export default function Home() {
               <img 
                 src={images.methodology} 
                 alt="Lifestyle with dogs" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 ease-out"
+                className="w-full h-full object-cover grayscale-0 lg:grayscale lg:hover:grayscale-0 transition-all duration-1000 ease-out"
               />
             </FadeIn>
           </div>

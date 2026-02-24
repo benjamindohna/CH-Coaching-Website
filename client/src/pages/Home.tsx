@@ -87,7 +87,7 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
       <nav 
         className={`fixed top-0 left-0 w-full z-50 px-6 transition-all duration-300 ease-in-out ${
           scrolled 
-            ? "bg-primary shadow-lg py-4 lg:px-12" 
+            ? "bg-primary shadow-lg py-4 lg:py-6 lg:px-12" 
             : "max-[999px]:bg-primary bg-transparent py-4 lg:py-8 lg:px-12"
         }`}
       >

@@ -87,8 +87,8 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
       <nav 
         className={`fixed top-0 left-0 w-full z-50 px-6 lg:px-12 transition-all duration-300 ease-in-out ${
           scrolled 
-            ? "bg-primary shadow-lg py-4 lg:py-4" 
-            : "max-[999px]:bg-primary max-[999px]:py-4 bg-transparent py-8"
+            ? "bg-primary shadow-lg py-3 lg:py-4" 
+            : "max-[999px]:bg-primary max-[999px]:py-3 bg-transparent py-8"
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -256,7 +256,7 @@ export default function Home() {
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* 1. Hero Section */}
-        <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2 pt-[80px] lg:pt-0">
+        <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2 pt-[72px] lg:pt-0">
           <div className="relative h-[60vh] lg:h-screen w-full overflow-hidden">
             <motion.img 
               initial={{ scale: 1.1, opacity: 0 }}

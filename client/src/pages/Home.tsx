@@ -52,7 +52,7 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
       onClick={() => setLang(lang === "de" ? "en" : "de")}
       style={{ padding: '4px' }}
     >
-      <div className="absolute inset-0 w-full h-full pointer-events-none p-1">
+      <div className="absolute inset-0 w-full h-full pointer-events-none p-1 overflow-hidden">
         <motion.div
           className={`rounded-[2px] shadow-sm ${
             isMobile || scrolled ? "bg-white" : "bg-primary"
@@ -60,7 +60,12 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
           style={{ width: '28px', height: '100%' }}
           initial={false}
           animate={{ x: lang === "de" ? 0 : 30 }}
-          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+          transition={{ 
+            type: "spring", 
+            stiffness: 400, 
+            damping: 30,
+            mass: 0.8
+          }}
         />
       </div>
       <div className="flex w-full h-full z-10 pointer-events-none relative">

@@ -342,14 +342,15 @@ export default function Home() {
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-5 relative aspect-[3/4] lg:aspect-[4/5]">
-                 <FadeIn>
-                  <div className="absolute inset-0 border border-primary/30 translate-x-4 translate-y-4 lg:translate-x-8 lg:translate-y-8 pointer-events-none h-full lg:h-[120%]" />
+                <div className="relative h-full w-full">
+                  <div className="absolute inset-0 border border-primary/30 translate-x-4 translate-y-4 lg:translate-x-8 lg:translate-y-8 pointer-events-none h-full lg:h-[120%] hidden min-[1000px]:block" />
+                  <div className="absolute inset-0 border border-primary/30 translate-x-4 translate-y-4 pointer-events-none h-full min-[1000px]:hidden" />
                   <img 
                     src={images.authority} 
                     alt="Chantal at work" 
                     className="w-full h-full object-cover relative z-10 shadow-xl"
                   />
-                </FadeIn>
+                </div>
               </div>
               <div className="lg:col-span-1 lg:col-start-7 lg:col-end-13">
                 <FadeIn delay={0.2}>

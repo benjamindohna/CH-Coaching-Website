@@ -95,7 +95,13 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="relative z-50">
-            <Logo scrolled={true} />
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="focus:outline-none transition-opacity hover:opacity-70"
+              aria-label="Scroll to top"
+            >
+              <Logo scrolled={true} />
+            </button>
           </div>
 
           {/* Desktop Nav */}

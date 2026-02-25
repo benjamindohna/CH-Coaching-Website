@@ -373,7 +373,7 @@ export default function Home() {
                     </p>
                   </div>
                   
-                  <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-primary/20 pt-8">
+                  <div className="mt-12 grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 border-t border-primary/20 pt-8">
                     <div>
                       <span className="block text-3xl font-serif mb-2 text-primary/80">25+</span>
                       <span className="text-xs uppercase tracking-widest text-muted-foreground" data-i18n="authority.stat1">{t.authority.stat1}</span>
@@ -389,6 +389,14 @@ export default function Home() {
                     <div>
                       <span className="block text-3xl font-serif mb-2 text-primary/80" data-i18n="authority.stat3">{t.authority.stat3}</span>
                       <span className="text-xs uppercase tracking-widest text-muted-foreground" data-i18n="authority.stat4">{t.authority.stat4}</span>
+                    </div>
+                    <div>
+                      <span className="block text-3xl font-serif mb-2 text-primary/80" data-i18n="authority.stat5">{t.authority.stat5}</span>
+                      <span className="text-xs uppercase tracking-widest text-muted-foreground" data-i18n="authority.stat6">{t.authority.stat6}</span>
+                    </div>
+                    <div>
+                      <span className="block text-3xl font-serif mb-2 text-primary/80" data-i18n="authority.stat7">{t.authority.stat7}</span>
+                      <span className="text-xs uppercase tracking-widest text-muted-foreground" data-i18n="authority.stat8">{t.authority.stat8}</span>
                     </div>
                   </div>
                 </FadeIn>

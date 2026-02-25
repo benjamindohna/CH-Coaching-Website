@@ -34,7 +34,11 @@ export const translations = {
       stat1: "Jahre Erfahrung",
       stat2: "Ehemalige Führungskraft",
       stat3: "4 Söhne",
-      stat4: "Resilienz- & Empathie-Expertin"
+      stat4: "Resilienz- & Empathie-Expertin",
+      stat5: "Odeon Capital",
+      stat6: "Beiratsmitglied",
+      stat7: "Hammer AG",
+      stat8: "Vize-Aufsichtsratsvorsitzende"
     },
     trust: {
       insead: "INSEAD Executive Coach",
@@ -87,7 +91,11 @@ export const translations = {
       stat1: "Years Experience",
       stat2: "Former Leadership",
       stat3: "4 Sons",
-      stat4: "Resilience & Empathy Expert"
+      stat4: "Resilience & Empathy Expert",
+      stat5: "Odeon Capital",
+      stat6: "Board Member",
+      stat7: "Hammer AG",
+      stat8: "Vice Chair of the Supervisory Board"
     },
     trust: {
       insead: "INSEAD Executive Coach",

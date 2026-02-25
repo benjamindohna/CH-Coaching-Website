@@ -35,7 +35,7 @@ export const translations = {
       stat2: "Ehemalige Führungskraft",
       stat3: "4 Söhne",
       stat4: "Resilienz- & Empathie-Expertin",
-      stat5: "Odeon Capital",
+      stat5: "Odeon Kapital",
       stat6: "Beiratsmitglied",
       stat7: "Hammer AG",
       stat8: "Vize-Aufsichtsratsvorsitzende"
@@ -92,7 +92,7 @@ export const translations = {
       stat2: "Former Leadership",
       stat3: "4 Sons",
       stat4: "Resilience & Empathy Expert",
-      stat5: "Odeon Capital",
+      stat5: "Odeon Kapital",
       stat6: "Board Member",
       stat7: "Hammer AG",
       stat8: "Vice Chair of the Supervisory Board"

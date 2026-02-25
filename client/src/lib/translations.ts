@@ -38,7 +38,7 @@ export const translations = {
       stat5: "Odeon Kapital",
       stat6: "Beiratsmitglied",
       stat7: "Hammer AG",
-      stat8: "Vize-Aufsichtsrat"
+      stat8: "Vize Aufsichtsrat"
     },
     trust: {
       insead: "INSEAD Executive Coach",

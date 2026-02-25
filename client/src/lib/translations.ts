@@ -21,7 +21,7 @@ export const translations = {
       label: "Der Wendepunkt",
       title: "Ihr nächstes Kapitel,",
       subtitle: "definiert.",
-      p1: "Ich begleite reife Frauen dabei, ihr ungenutztes Potenzial zu entfalten. Ob Neuausrichtung Ihres Business, Beziehungen auf Augenhöhe oder volle Führungskraft – ich bin an Ihrer Seite.",
+      p1: "Ich begleite Frauen dabei, ihr ungenutztes Potenzial zu entfalten. Ob Neuausrichtung Ihres Business, Beziehungen auf Augenhöhe oder volle Führungskraft – ich bin an Ihrer Seite.",
       p2: "Meine Mission: Klarheit für Ihren Lebensweg gewinnen und Sie in die Frau verwandeln, die Sie schon immer sein wollten."
     },
     authority: {

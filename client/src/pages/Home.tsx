@@ -129,13 +129,13 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
           {/* Mobile Toggle */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="min-[1000px]:hidden relative z-50 p-2 transition-colors duration-300"
+            className="min-[1000px]:hidden relative z-50 p-2 transition-colors duration-300 rounded-none"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-white" />
+              <X className="w-6 h-6 text-white stroke-[1.5px]" />
             ) : (
-              <Menu className="w-6 h-6 text-white" />
+              <Menu className="w-6 h-6 text-white stroke-[1.5px]" />
             )}
           </button>
         </div>

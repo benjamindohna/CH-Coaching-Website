@@ -54,6 +54,47 @@ export const translations = {
     },
     footer: {
       rights: "Alle Rechte vorbehalten."
+    },
+    legal: {
+      impressum: {
+        title: "Impressum",
+        provider: "Anbieterin",
+        contact: "Kontakt",
+        vat: "Umsatzsteuer-ID",
+        vatText: "Es wird keine Umsatzsteuer-ID geführt.",
+        register: "Registereintrag",
+        registerText: "Kein Eintrag im Handelsregister.",
+        dispute: "Streitbeilegung",
+        disputeText: "Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+      },
+      privacy: {
+        title: "Datenschutzerklärung",
+        responsible: "1. Verantwortliche",
+        hosting: "2. Hosting und Bereitstellung der Website (Vercel)",
+        hostingText: "Diese Website wird über Vercel bereitgestellt. Beim Aufruf der Website werden technisch notwendige Daten verarbeitet (z. B. IP-Adresse, Datum/Uhrzeit, aufgerufene Seite, übertragenes Datenvolumen, Browser-/Betriebssysteminformationen, Referrer-URL), um die Website auszuliefern, die Stabilität und Sicherheit zu gewährleisten und Fehler zu analysieren (Server-Logfiles).",
+        hostingLegal: "Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am sicheren und zuverlässigen Betrieb der Website).",
+        hostingExtra: "Es kann nicht ausgeschlossen werden, dass dabei Daten in Staaten außerhalb der EU/des EWR (insbesondere USA) verarbeitet werden. Soweit erforderlich, erfolgt dies auf Grundlage geeigneter Garantien nach Art. 44 ff. DSGVO, z. B. durch Standardvertragsklauseln.",
+        github: "3. Versionsverwaltung/Deployment (GitHub)",
+        githubText: "Der Quellcode der Website wird zur Versionsverwaltung und Bereitstellung von Deployments über GitHub verwaltet. Dabei kann es technisch bedingt zu Verarbeitungen von Daten (z. B. Metadaten bei Deployments, IP-Adressen) kommen.",
+        githubLegal: "Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer sicheren und effizienten Bereitstellung der Website). Die Datenverarbeitung erfolgt ggf. in Drittstaaten (USA) unter Einhaltung der gesetzlichen Garantien nach Art. 44 ff. DSGVO.",
+        domains: "4. Domainregistrierung (United Domains)",
+        domainsText: "Die Domain wurde über United Domains registriert. In diesem Zusammenhang werden administrative und technische Daten verarbeitet, die für den Betrieb und die Verwaltung der Domain erforderlich sind.",
+        domainsLegal: "Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am Betrieb einer Domain).",
+        replit: "5. Entwicklung (Replit)",
+        replitText: "Die Website wurde in der Entwicklungsumgebung Replit erstellt. Im Rahmen der Entwicklung können technisch bedingt Verarbeitungen von Projekt- und Build-Metadaten stattfinden.",
+        replitLegal: "Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Entwicklung und Wartung).",
+        email: "6. Kontaktaufnahme per E-Mail",
+        emailText: "Bei Kontaktaufnahme per E-Mail verarbeiten wir die von dir übermittelten Daten (z. B. E-Mail-Adresse, Inhalt der Nachricht), um die Anfrage zu bearbeiten.",
+        emailLegal: "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Kommunikation) bzw. Art. 6 Abs. 1 lit. f DSGVO (allgemeine Kommunikation). Die Daten werden gelöscht, sobald sie für die Bearbeitung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.",
+        cookies: "7. Cookies / Tracking / Analyse",
+        cookiesText: "Diese Website verwendet keine Cookies zu Analyse- oder Marketingzwecken und setzt kein Tracking ein.",
+        language: "8. Sprachdarstellung",
+        languageText: "Die Website kann die vom Browser übermittelte Spracheinstellung (z. B. „de“/„en“) nutzen, um Inhalte passend anzuzeigen. Dabei erfolgt keine Profilbildung und keine Speicherung in Cookies.",
+        rights: "9. Deine Rechte",
+        rightsText: "Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO) sowie Datenübertragbarkeit (Art. 20 DSGVO). Außerdem besteht ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde (Art. 77 DSGVO).",
+        objection: "BESONDERER HINWEIS ZUM WIDERSPRUCHSRECHT (Art. 21 DSGVO):",
+        objectionText: "Du hast das Recht, aus Gründen, die sich aus deiner besonderen Situation ergeben, jederzeit gegen die Verarbeitung dich betreffender personenbezogener Daten, die aufgrund von Art. 6 Abs. 1 lit. f DSGVO (Interessenabwägung) erfolgt, Widerspruch einzulegen. Legst du Widerspruch ein, werden deine personenbezogenen Daten nicht mehr verarbeitet, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die deine Interessen, Rechte und Freiheiten überwiegen."
+      }
     }
   },
   en: {
@@ -111,6 +152,47 @@ export const translations = {
     },
     footer: {
       rights: "All Rights Reserved."
+    },
+    legal: {
+      impressum: {
+        title: "Legal Notice",
+        provider: "Provider",
+        contact: "Contact",
+        vat: "VAT ID",
+        vatText: "No VAT ID is maintained.",
+        register: "Register Entry",
+        registerText: "No entry in the commercial register.",
+        dispute: "Dispute Resolution",
+        disputeText: "I am neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board."
+      },
+      privacy: {
+        title: "Privacy Policy",
+        responsible: "1. Controller",
+        hosting: "2. Hosting and Provision of the Website (Vercel)",
+        hostingText: "This website is provided via Vercel. When the website is accessed, technically necessary data is processed (e.g., IP address, date/time, page accessed, amount of data transferred, browser/operating system information, referrer URL) to deliver the website, ensure stability and security, and analyze errors (server log files).",
+        hostingLegal: "Legal basis: Art. 6 (1) (f) GDPR (legitimate interest in the secure and reliable operation of the website).",
+        hostingExtra: "It cannot be ruled out that data may be processed in states outside the EU/EEA (especially the USA). Where necessary, this is done on the basis of appropriate guarantees according to Art. 44 et seq. GDPR, e.g., by standard contractual clauses.",
+        github: "3. Version Control/Deployment (GitHub)",
+        githubText: "The source code of the website is managed for version control and provision of deployments via GitHub. This may technically result in the processing of data (e.g., metadata during deployments, IP addresses).",
+        githubLegal: "Legal basis: Art. 6 (1) (f) GDPR (legitimate interest in a secure and efficient provision of the website). Data processing may take place in third countries (USA) in compliance with the legal guarantees according to Art. 44 et seq. GDPR.",
+        domains: "4. Domain Registration (United Domains)",
+        domainsText: "The domain was registered via United Domains. In this context, administrative and technical data required for the operation and management of the domain are processed.",
+        domainsLegal: "Legal basis: Art. 6 (1) (f) GDPR (legitimate interest in the operation of a domain).",
+        replit: "5. Development (Replit)",
+        replitText: "The website was created in the Replit development environment. During development, technical processing of project and build metadata may take place.",
+        replitLegal: "Legal basis: Art. 6 (1) (f) GDPR (legitimate interest in development and maintenance).",
+        email: "6. Contact via E-Mail",
+        emailText: "When contacting us via e-mail, we process the data you transmit (e.g., e-mail address, content of the message) to process the request.",
+        emailLegal: "Legal basis: Art. 6 (1) (b) GDPR (pre-contractual communication) or Art. 6 (1) (f) GDPR (general communication). The data will be deleted as soon as they are no longer required for processing and no statutory retention obligations exist.",
+        cookies: "7. Cookies / Tracking / Analysis",
+        cookiesText: "This website does not use cookies for analysis or marketing purposes and does not use tracking.",
+        language: "8. Language Display",
+        languageText: "The website can use the language setting transmitted by the browser (e.g., 'de'/'en') to display content appropriately. No profiling and no storage in cookies take place.",
+        rights: "9. Your Rights",
+        rightsText: "You have the right to information (Art. 15 GDPR), rectification (Art. 16 GDPR), erasure (Art. 17 GDPR), restriction of processing (Art. 18 GDPR), and data portability (Art. 20 GDPR). In addition, there is a right to lodge a complaint with a data protection supervisory authority (Art. 77 GDPR).",
+        objection: "SPECIAL NOTE ON THE RIGHT TO OBJECT (Art. 21 GDPR):",
+        objectionText: "You have the right to object at any time, on grounds relating to your particular situation, to the processing of personal data concerning you which is based on Art. 6 (1) (f) GDPR (balancing of interests). If you object, your personal data will no longer be processed unless we can demonstrate compelling legitimate grounds for the processing which override your interests, rights, and freedoms."
+      }
     }
   }
 };

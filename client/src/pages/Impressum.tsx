@@ -78,6 +78,11 @@ export default function Impressum() {
           <h3 className="text-xl font-medium text-foreground mb-4">Registereintrag</h3>
           <p>Kein Eintrag im Handelsregister.</p>
         </section>
+
+        <section>
+          <h3 className="text-xl font-medium text-foreground mb-4">Streitbeilegung</h3>
+          <p>Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        </section>
       </div>
     </LegalLayout>
   );

@@ -58,7 +58,7 @@ export default function Datenschutz() {
           Lilienstraße 10<br />
           81669 München<br />
           Deutschland<br />
-          E-Mail: <a href="mailto:hello@ch-executivecoach.com" className="text-primary hover:underline">hello@ch-executivecoach.com</a>
+          E-Mail: <a href="mailto:ch@ch-executive.coach" className="text-primary hover:underline">ch@ch-executive.coach</a>
         </p>
       </section>
 
@@ -66,7 +66,7 @@ export default function Datenschutz() {
         <h3 className="text-xl font-medium text-foreground mb-4">2. Hosting und Bereitstellung der Website (Vercel)</h3>
         <p>Diese Website wird über Vercel bereitgestellt. Beim Aufruf der Website werden technisch notwendige Daten verarbeitet (z. B. IP-Adresse, Datum/Uhrzeit, aufgerufene Seite, übertragenes Datenvolumen, Browser-/Betriebssysteminformationen, Referrer-URL), um die Website auszuliefern, die Stabilität und Sicherheit zu gewährleisten und Fehler zu analysieren (Server-Logfiles).</p>
         <p className="mt-2"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am sicheren und zuverlässigen Betrieb der Website).</p>
-        <p className="mt-2 text-sm italic">Es kann nicht ausgeschlossen werden, dass dabei Daten in Staaten außerhalb der EU/des EWR (insbesondere USA) verarbeitet werden. Soweit erforderlich, erfolgt dies auf Grundlage geeigneter Garantien nach Art. 44 ff. DSGVO (z. B. EU-U.S. Data Privacy Framework oder Standardvertragsklauseln).</p>
+        <p className="mt-2 text-sm italic">Es kann nicht ausgeschlossen werden, dass dabei Daten in Staaten außerhalb der EU/des EWR (insbesondere USA) verarbeitet werden. Soweit erforderlich, erfolgt dies auf Grundlage geeigneter Garantien nach Art. 44 ff. DSGVO, z. B. durch Standardvertragsklauseln.</p>
       </section>
 
       <section>

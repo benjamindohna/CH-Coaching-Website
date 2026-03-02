@@ -66,7 +66,7 @@ export default function Impressum() {
 
         <section>
           <h3 className="text-xl font-medium text-foreground mb-4">Kontakt</h3>
-          <p>E-Mail: <a href="mailto:hello@ch-executivecoach.com" className="text-primary hover:underline">hello@ch-executivecoach.com</a></p>
+          <p>E-Mail: <a href="mailto:ch@ch-executive.coach" className="text-primary hover:underline">ch@ch-executive.coach</a></p>
         </section>
 
         <section>
@@ -77,15 +77,6 @@ export default function Impressum() {
         <section>
           <h3 className="text-xl font-medium text-foreground mb-4">Registereintrag</h3>
           <p>Kein Eintrag im Handelsregister.</p>
-        </section>
-
-        <section>
-          <h3 className="text-xl font-medium text-foreground mb-4">Streitschlichtung</h3>
-          <p>
-            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
-            <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">https://ec.europa.eu/consumers/odr</a>.
-          </p>
-          <p>Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
         </section>
       </div>
     </LegalLayout>

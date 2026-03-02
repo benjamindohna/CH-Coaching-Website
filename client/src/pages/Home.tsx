@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { images } from "@/lib/images";
@@ -443,7 +444,17 @@ export default function Home() {
 
         <footer className="py-16 px-6 bg-secondary/30 border-t border-primary/10">
           <div className="container mx-auto flex flex-col items-center">
-            <Logo variant="footer" />
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="focus:outline-none transition-opacity hover:opacity-70"
+              aria-label="Scroll to top"
+            >
+              <Logo variant="footer" />
+            </button>
+            <div className="flex gap-8 mt-8 text-[10px] uppercase tracking-widest text-muted-foreground/60">
+              <Link href="/impressum"><a className="hover:text-primary transition-colors">Impressum</a></Link>
+              <Link href="/datenschutz"><a className="hover:text-primary transition-colors">Datenschutz</a></Link>
+            </div>
             <p className="mt-8 text-[10px] uppercase tracking-widest text-muted-foreground/60">
               &copy; {new Date().getFullYear()} CH Executive Coaching. <span data-i18n="footer.rights">{t.footer.rights}</span>
             </p>

@@ -189,7 +189,7 @@ const Navbar = ({ lang, setLang, t }: { lang: string, setLang: (l: string) => vo
               transition={{ delay: 0.6 }}
               className="flex gap-8"
             >
-              <a href="mailto:ch@ch-executive.coach" className="text-white/60 hover:text-white transition-colors">
+              <a href="mailto:ch@hammers.family" className="text-white/60 hover:text-white transition-colors">
                 <Mail className="w-6 h-6" />
               </a>
               <a href="https://www.linkedin.com/in/chantal-hammer-96728bb5/" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
@@ -427,9 +427,9 @@ export default function Home() {
                 </span>
                 
                 <div className="space-y-8">
-                  <a href="mailto:ch@ch-executive.coach" className="flex items-center justify-center gap-3 text-lg hover:text-primary transition-colors">
+                  <a href="mailto:ch@hammers.family" className="flex items-center justify-center gap-3 text-lg hover:text-primary transition-colors">
                     <Mail className="w-5 h-5 text-primary/60" />
-                    ch@ch-executive.coach
+                    ch@hammers.family
                   </a>
                   
                   <a href="https://www.linkedin.com/in/chantal-hammer-96728bb5/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 text-lg hover:text-primary transition-colors">

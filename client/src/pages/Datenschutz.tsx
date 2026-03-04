@@ -72,7 +72,7 @@ export default function Datenschutz() {
             Lilienstraße 10<br />
             81669 München<br />
             Deutschland<br />
-            E-Mail: <a href="mailto:ch@ch-executive.coach" className="text-primary hover:underline">ch@ch-executive.coach</a>
+            E-Mail: <a href="mailto:ch@hammers.family" className="text-primary hover:underline">ch@hammers.family</a>
           </p>
         </section>
 

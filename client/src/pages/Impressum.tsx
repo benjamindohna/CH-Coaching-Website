@@ -80,7 +80,7 @@ export default function Impressum() {
 
         <section>
           <h3 className="text-xl font-medium text-foreground mb-4">{t.contact}</h3>
-          <p>E-Mail: <a href="mailto:ch@ch-executive.coach" className="text-primary hover:underline">ch@ch-executive.coach</a></p>
+          <p>E-Mail: <a href="mailto:ch@hammers.family" className="text-primary hover:underline">ch@hammers.family</a></p>
         </section>
 
         <section>

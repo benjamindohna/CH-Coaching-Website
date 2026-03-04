@@ -127,7 +127,7 @@ export const translations = {
       title: "CH Executive Coaching Meets",
       subtitle: "Personal Transformation.",
       p1: "I am Chantal Hammer—an entrepreneur with over 25 years in the luxury sector and a certified INSEAD Executive Coach. My background in Retail and Consumer Goods, supported by a B.Sc. in Business and Economics, shapes my strategic and commercial perspective.",
-      p2: "From leading roles at Polo Ralph Lauren and LVMH to serving as Board Chair at Hammer AG, I combine high-level business precision with deep human understanding. As a mother of four sons, I bring a unique blend of resilience, empathy, and practical leadership to my work.",
+      p2: "From leadership positions at Polo Ralph Lauren and LVMH to over 20 years on the Supervisory and Advisory Boards of our own family business, and my current role as a Board Member at Odeon Kapital, I combine entrepreneurial precision with deep human understanding.",
       p3: "Fluent in five languages, I operate confidently across international environments, coaching women who are ready for change and willing to look in the mirror with radical honesty.",
       stat1: "Years Experience",
       stat2: "Former Leadership",
